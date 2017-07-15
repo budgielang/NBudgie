@@ -1,0 +1,48 @@
+{
+  "name": "ngls",
+  "version": "0.0.0",
+  "description": "Natural language layer on top of GLS.",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "gulp test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/highschoolhacking/NGLS.git"
+  },
+  "keywords": [
+    "gls",
+    "general",
+    "language",
+    "syntax",
+    "oop",
+    "metalanguage",
+    "natural",
+    "language",
+    "csharp",
+    "java",
+    "javascript",
+    "python",
+    "ruby",
+    "typescript"
+  ],
+  "author": "Josh Goldberg <joshuakgoldberg@outlook.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/highschoolhacking/NGLS/issues"
+  },
+  "homepage": "https://github.com/highschoolhacking/NGLS#readme",
+  "dependencies": {
+    "@types/chai": "^4.0.1",
+    "@types/mocha": "^2.2.41",
+    "@types/mz": "0.0.31",
+    "@types/sinon": "^2.3.2",
+    "@types/sinon-chai": "^2.7.28",
+    "chai": "^4.1.0",
+    "general-language-syntax": "^0.3.15",
+    "mocha": "^3.4.2",
+    "mz": "^2.6.0",
+    "sinon": "^2.3.8",
+    "sinon-chai": "^2.11.0"
+  }
+}

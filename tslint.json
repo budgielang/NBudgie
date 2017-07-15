@@ -1,0 +1,14 @@
+{
+    "extends": [
+        "tslint:all"
+    ],
+    "rules": {
+        "array-type": [true, "array"],
+        "class-name": false,
+        "completed-docs": [false],
+        "linebreak-style": [false],
+        "no-magic-numbers": [true, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+        "prefer-function-over-method": [true, "allow-public"],
+        "typedef": [false]
+    }
+}

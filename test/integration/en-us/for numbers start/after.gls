@@ -1,0 +1,7 @@
+for numbers start : a 0 10
+for numbers start : ab -1 5
+for numbers start : abc 0.5 7.5
+for numbers start : abcd -.5 3.5
+
+
+

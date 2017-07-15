@@ -1,0 +1,7 @@
+for loop for a from 0 to 10
+for loop on ab from -1 to 5
+give me a for loop for abc from 0.5 to 7.5
+make a for loop on abcd from -.5 to 3.5
+for loop from 0 to 10
+for loop on a to 10
+for loop from 0.a to -
