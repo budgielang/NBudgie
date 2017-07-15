@@ -39,10 +39,27 @@
     "@types/sinon": "^2.3.2",
     "@types/sinon-chai": "^2.7.28",
     "chai": "^4.1.0",
-    "general-language-syntax": "^0.3.15",
     "mocha": "^3.4.2",
     "mz": "^2.6.0",
     "sinon": "^2.3.8",
     "sinon-chai": "^2.11.0"
+  },
+  "devDependencies": {
+    "browserify": "^14.4.0",
+    "del": "^3.0.0",
+    "gulp": "^3.9.1",
+    "gulp-mocha": "^4.3.1",
+    "gulp-sourcemaps": "^2.6.0",
+    "gulp-tslint": "^8.1.1",
+    "gulp-typescript": "^3.2.1",
+    "gulp-uglify": "^3.0.0",
+    "merge2": "^1.1.0",
+    "run-sequence": "^2.0.0",
+    "tsify": "^3.0.1",
+    "tslint": "^5.5.0",
+    "tsutils": "^2.7.1",
+    "typescript": "^2.4.1",
+    "vinyl-buffer": "^1.0.0",
+    "vinyl-source-stream": "^1.1.0"
   }
 }

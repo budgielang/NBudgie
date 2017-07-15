@@ -1,0 +1,23 @@
+{
+    "compilerOptions": {
+        "declaration": false,
+        "module": "commonjs",
+        "moduleResolution": "node",
+        "target": "es2015",
+        "noFallthroughCasesInSwitch": true,
+        "noImplicitAny": true,
+        "noImplicitReturns": true,
+        "noImplicitThis": true,
+        "pretty": true,
+        "rootDir": "..",
+        "sourceMap": true,
+        "strict": true
+    },
+    "exclude": [
+        "../src/**/*.ts"
+    ],
+    "include": [
+        "./*.ts",
+        "./unit/**/*.ts"
+    ]
+}

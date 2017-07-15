@@ -53,5 +53,7 @@ export class Parser {
 
             return command.render(matcher.parseArgs(match));
         }
+
+        return undefined;
     }
 }

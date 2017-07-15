@@ -2,7 +2,7 @@ import { expect } from "chai";
 import * as path from "path";
 import { stub } from "sinon";
 
-import { ClassInstanceFactory } from "../../../src/factories/classInstanceFactory";
+import { ClassInstanceFactory } from "../../../lib/factories/classInstanceFactory";
 
 class StubClass { }
 
@@ -26,9 +26,8 @@ describe("ClassInstanceFactory", () => {
             classInstanceFactory.getClassInstance(relativePath, stubClassName);
 
             // Assert
-            expect(dependencies.importFile).to.have.been.calledWithExactly([
+            chai.expect(dependencies.importFile.getCall(0).args).to.be.deep.equal([
                 path.join(dependencies.rootDirectory, relativePath),
-                stubClassName,
             ]);
         });
 
@@ -39,8 +38,8 @@ describe("ClassInstanceFactory", () => {
             const relativePath = "dir/file";
 
             // Act
-            const first = classInstanceFactory.getClassInstance(relativePath, stubClassName);
-            const second = classInstanceFactory.getClassInstance(relativePath, stubClassName);
+            const first = await classInstanceFactory.getClassInstance(relativePath, stubClassName);
+            const second = await classInstanceFactory.getClassInstance(relativePath, stubClassName);
 
             // Assert
             expect(first).to.be.equal(second);

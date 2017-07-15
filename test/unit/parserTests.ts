@@ -1,9 +1,9 @@
 import { expect } from "chai";
 import { stub } from "sinon";
 
-import { ClassInstanceFactory } from "../../src/factories/classInstanceFactory";
-import { CommandsAndMatchersFactory } from "../../src/factories/commandsAndMatchersFactory";
-import { Parser } from "../../src/parser";
+import { ClassInstanceFactory } from "../../lib/factories/classInstanceFactory";
+import { CommandsAndMatchersFactory } from "../../lib/factories/commandsAndMatchersFactory";
+import { Parser } from "../../lib/parser";
 
 describe("Parser", () => {
     describe("parseLine", () => {
