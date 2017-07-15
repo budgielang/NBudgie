@@ -13,16 +13,18 @@ describe("Parser", () => {
             const command = {
                 render: stub().returns(result),
             };
-            const matcher = {
-                expression: /.*/,
-                parseArgs: stub(),
+            const matchersList = {
+                matchers: [{
+                    expression: /.*/,
+                    parseArgs: stub(),
+                }],
             };
             const commandNames = ["valid"];
             const commandsAndMatchersFactory = {
                 getCommand: stub().returns(Promise.resolve(command)),
-                getMatcher: stub().returns(Promise.resolve(matcher)),
+                getMatchersList: stub().returns(Promise.resolve(matchersList)),
             };
-            const parser = new Parser({ commandNames, commandsAndMatchersFactory});
+            const parser = new Parser({ commandNames, commandsAndMatchersFactory });
 
             // Act
             const parsed = await parser.parseLine("");
@@ -40,13 +42,17 @@ describe("Parser", () => {
             const validCommand = {
                 render: stub().returns(result),
             };
-            const invalidMatcher = {
-                expression: /$a/,
-                parseArgs: stub(),
+            const invalidMatchersList = {
+                matchers: [{
+                    expression: /$a/,
+                    parseArgs: stub(),
+                }],
             };
-            const validMatcher = {
-                expression: /.*/,
-                parseArgs: stub(),
+            const validMatchersList = {
+                matchers: [{
+                    expression: /.*/,
+                    parseArgs: stub(),
+                }],
             };
             const commandNames = ["first", "valid", "third"];
             const commandsAndMatchersFactory = {
@@ -54,12 +60,12 @@ describe("Parser", () => {
                     .withArgs("first").returns(Promise.resolve(invalidCommand))
                     .withArgs("third").returns(Promise.resolve(invalidCommand))
                     .withArgs("valid").returns(Promise.resolve(validCommand)),
-                getMatcher: stub()
-                    .withArgs("first").returns(Promise.resolve(invalidMatcher))
-                    .withArgs("third").returns(Promise.resolve(invalidMatcher))
-                    .withArgs("valid").returns(Promise.resolve(validMatcher)),
+                getMatchersList: stub()
+                    .withArgs("first").returns(Promise.resolve(invalidMatchersList))
+                    .withArgs("third").returns(Promise.resolve(invalidMatchersList))
+                    .withArgs("valid").returns(Promise.resolve(validMatchersList)),
             };
-            const parser = new Parser({ commandNames, commandsAndMatchersFactory});
+            const parser = new Parser({ commandNames, commandsAndMatchersFactory });
 
             // Act
             const parsed = await parser.parseLine("");
@@ -73,18 +79,20 @@ describe("Parser", () => {
             const invalidCommand = {
                 render: stub(),
             };
-            const invalidMatcher = {
-                expression: /$a/,
-                parseArgs: stub(),
+            const invalidMatchersList = {
+                matchers: [{
+                    expression: /$a/,
+                    parseArgs: stub(),
+                }],
             };
             const commandNames = ["invalid"];
             const commandsAndMatchersFactory = {
                 getCommand: stub()
                     .withArgs("invalid").returns(Promise.resolve(invalidCommand)),
-                getMatcher: stub()
-                    .withArgs("invalid").returns(Promise.resolve(invalidMatcher)),
+                getMatchersList: stub()
+                    .withArgs("invalid").returns(Promise.resolve(invalidMatchersList)),
             };
-            const parser = new Parser({ commandNames, commandsAndMatchersFactory});
+            const parser = new Parser({ commandNames, commandsAndMatchersFactory });
 
             // Act
             const parsed = await parser.parseLine("");

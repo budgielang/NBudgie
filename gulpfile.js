@@ -179,10 +179,6 @@ gulp.task("test:integration", function () {
     return runTests("test/integration.js");
 });
 
-gulp.task("test:end-to-end", function () {
-    return runTests("test/end-to-end.js");
-});
-
 gulp.task("test", function (callback) {
     require("run-sequence")(
         "test:clean",
@@ -190,7 +186,6 @@ gulp.task("test", function (callback) {
         "test:tslint",
         "test:unit",
         "test:integration",
-        "test:end-to-end",
         callback);
 });
 

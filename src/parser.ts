@@ -43,15 +43,18 @@ export class Parser {
      */
     public async parseLine(line: string): Promise<string[] | undefined> {
         for (const commandName of this.dependencies.commandNames) {
-            const matcher = await this.dependencies.commandsAndMatchersFactory.getMatcher(commandName);
-            const match = matcher.expression.exec(line);
-            if (match === null) { // tslint:disable-line:no-null-keyword
-                continue;
+            const matchersList = await this.dependencies.commandsAndMatchersFactory.getMatchersList(commandName);
+
+            for (const matcher of matchersList.matchers) {
+                const match = matcher.expression.exec(line);
+                if (match === null) { // tslint:disable-line:no-null-keyword
+                    continue;
+                }
+
+                const command = await this.dependencies.commandsAndMatchersFactory.getCommand(commandName);
+
+                return command.render(matcher.parseArgs(match));
             }
-
-            const command = await this.dependencies.commandsAndMatchersFactory.getCommand(commandName);
-
-            return command.render(matcher.parseArgs(match));
         }
 
         return undefined;

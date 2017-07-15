@@ -26,7 +26,7 @@ describe("ClassInstanceFactory", () => {
             classInstanceFactory.getClassInstance(relativePath, stubClassName);
 
             // Assert
-            chai.expect(dependencies.importFile.getCall(0).args).to.be.deep.equal([
+            expect(dependencies.importFile.getCall(0).args).to.be.deep.equal([
                 path.join(dependencies.rootDirectory, relativePath),
             ]);
         });

@@ -1,7 +1,7 @@
 import * as path from "path";
 
 import { ICommand } from "../command";
-import { IMatcher } from "../matchers";
+import { IMatchersList } from "../matchers";
 import { Parser } from "../parser";
 import { IClassInstanceFactory } from "./classInstanceFactory";
 
@@ -29,13 +29,13 @@ export interface ICommandsAndMatchersFactory {
     getCommand<TClass extends ICommand = ICommand>(commandName: string): Promise<ICommand>;
 
     /**
-     * Retrieves an instance of a matcher class.
+     * Retrieves an instance of a matchers list class.
      *
-     * @type TClass   Type of the matcher class.
-     * @param matcherName   Name of the matcher.
-     * @returns A Promise for an instance of the matcher class.
+     * @type TClass   Type of the matchers list class.
+     * @param matcherName   Name of the matchers list.
+     * @returns A Promise for an instance of the matchers list class.
      */
-    getMatcher<TClass extends IMatcher = IMatcher>(matcherName: string): Promise<IMatcher>;
+    getMatchersList<TClass extends IMatchersList = IMatchersList>(matcherName: string): Promise<IMatchersList>;
 }
 
 /**
@@ -68,14 +68,14 @@ export class CommandsAndMatchersFactory implements ICommandsAndMatchersFactory {
     }
 
     /**
-     * Retrieves an instance of a matcher class.
+     * Retrieves an instance of a matchers list class.
      *
-     * @type TClass   Type of the matcher class.
-     * @param matcherName   Name of the matcher.
-     * @returns A Promise for an instance of the matcher class.
+     * @type TClass   Type of the matchers list class.
+     * @param matcherName   Name of the matchers list.
+     * @returns A Promise for an instance of the matchers list class.
      */
-    public async getMatcher<TClass extends IMatcher = IMatcher>(matcherName: string): Promise<IMatcher> {
-        return await this.getClassInstance<TClass>(matcherName, "matchers.js", "Matcher");
+    public async getMatchersList<TClass extends IMatchersList = IMatchersList>(matcherName: string): Promise<IMatchersList> {
+        return await this.getClassInstance<TClass>(matcherName, "matchers.js", "MatchersList");
     }
 
     /**

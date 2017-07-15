@@ -45,6 +45,7 @@
     "sinon-chai": "^2.11.0"
   },
   "devDependencies": {
+    "@types/minimatch": "^2.0.29",
     "browserify": "^14.4.0",
     "del": "^3.0.0",
     "gulp": "^3.9.1",
@@ -54,6 +55,7 @@
     "gulp-typescript": "^3.2.1",
     "gulp-uglify": "^3.0.0",
     "merge2": "^1.1.0",
+    "minimatch": "^3.0.4",
     "run-sequence": "^2.0.0",
     "tsify": "^3.0.1",
     "tslint": "^5.5.0",

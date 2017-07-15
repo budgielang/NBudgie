@@ -1,15 +1,15 @@
 import { IMatchersList } from "../../../matchers";
 import { ICommandArgs } from "./command";
 
-export class Matcher implements IMatchersList {
+export class MatchersList implements IMatchersList {
     public readonly matchers = [
         {
             expression: /for loop (for|on) (.+) from (-?\d?\.?\d+) to (-?\d?\.?\d+)/,
             parseArgs(matches: RegExpMatchArray): ICommandArgs {
                 return {
-                    end: parseFloat(matches[2]),
-                    name: matches[0],
-                    start: parseFloat(matches[1]),
+                    end: matches[4],
+                    name: matches[2],
+                    start: matches[3],
                 };
             },
         },

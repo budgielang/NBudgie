@@ -1,0 +1,7 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const chai = require("chai");
+const sinonChai = require("sinon-chai");
+chai.use(sinonChai);
+
+//# sourceMappingURL=data:application/json;charset=utf8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInRlc3QvdW5pdC9zZXR1cC50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOztBQUFBLDZCQUE2QjtBQUM3Qix3Q0FBd0M7QUFFeEMsSUFBSSxDQUFDLEdBQUcsQ0FBQyxTQUFTLENBQUMsQ0FBQyIsImZpbGUiOiJ0ZXN0L3VuaXQvc2V0dXAuanMiLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgKiBhcyBjaGFpIGZyb20gXCJjaGFpXCI7XHJcbmltcG9ydCAqIGFzIHNpbm9uQ2hhaSBmcm9tIFwic2lub24tY2hhaVwiO1xyXG5cclxuY2hhaS51c2Uoc2lub25DaGFpKTtcclxuIl19

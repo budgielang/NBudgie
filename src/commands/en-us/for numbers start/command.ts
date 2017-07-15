@@ -1,9 +1,9 @@
 import { ICommand } from "../../../command";
 
 export interface ICommandArgs {
-    end: number;
+    end: string;
     name: string;
-    start: number;
+    start: string;
 }
 
 export class Command implements ICommand<ICommandArgs> {
