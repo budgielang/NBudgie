@@ -3,6 +3,7 @@ import { stub } from "sinon";
 
 import { ClassInstanceFactory } from "../../lib/factories/classInstanceFactory";
 import { CommandsAndMatchersFactory } from "../../lib/factories/commandsAndMatchersFactory";
+import { RegExpMatchTest } from "../../lib/matchTests/regExpMatchTest";
 import { Parser } from "../../lib/parser";
 
 describe("Parser", () => {
@@ -15,8 +16,8 @@ describe("Parser", () => {
             };
             const matchersList = {
                 matchers: [{
-                    expression: /.*/,
                     parseArgs: stub(),
+                    test: new RegExpMatchTest(/.*/),
                 }],
             };
             const commandNames = ["valid"];
@@ -44,14 +45,14 @@ describe("Parser", () => {
             };
             const invalidMatchersList = {
                 matchers: [{
-                    expression: /$a/,
                     parseArgs: stub(),
+                    test: new RegExpMatchTest(/$a/),
                 }],
             };
             const validMatchersList = {
                 matchers: [{
-                    expression: /.*/,
                     parseArgs: stub(),
+                    test: new RegExpMatchTest(/.*/),
                 }],
             };
             const commandNames = ["first", "valid", "third"];
@@ -81,8 +82,8 @@ describe("Parser", () => {
             };
             const invalidMatchersList = {
                 matchers: [{
-                    expression: /$a/,
                     parseArgs: stub(),
+                    test: new RegExpMatchTest(/$a/),
                 }],
             };
             const commandNames = ["invalid"];

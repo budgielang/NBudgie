@@ -1,13 +1,26 @@
 /**
+ * Tests whether a string matches a command.
+ */
+export interface IMatchTest {
+    /**
+     * Attempts to match a string for the command.
+     *
+     * @param input   Input string to test.
+     * @returns Found names in the string, if it matches.
+     */
+    execute(input: string): string[] | undefined;
+}
+
+/**
  * Possible string-to-args matcher for a command.
  *
  * @type TCommandArgs   Args for the command to convert into.
  */
 export interface IMatcher<TCommandArgs extends {} = {}> {
     /**
-     * Exec test for a potential input string.
+     * Tests whether a string matches a command.
      */
-    readonly expression: RegExp;
+    test: IMatchTest;
 
     /**
      * Converts successful matches into command arguments.

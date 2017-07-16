@@ -46,8 +46,8 @@ export class Parser {
             const matchersList = await this.dependencies.commandsAndMatchersFactory.getMatchersList(commandName);
 
             for (const matcher of matchersList.matchers) {
-                const match = matcher.expression.exec(line);
-                if (match === null) { // tslint:disable-line:no-null-keyword
+                const match = matcher.test.execute(line);
+                if (match === undefined) {
                     continue;
                 }
 
