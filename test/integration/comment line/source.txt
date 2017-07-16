@@ -1,3 +1,4 @@
 protip: comment noting abcd 1234
-write a comment that abc def ghi
-make a new comment saying 123 456 7
+write a note that abc def ghi
+write a comment: abc def ghi
+make a new note saying 123 456 7
