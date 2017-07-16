@@ -5,6 +5,26 @@ import { ICommandArgs } from "./command";
 export class MatchersList implements IMatchersList {
     public readonly matchers = [
         {
+            test: new RegExpMatchTest(/decrement (.+)/i),
+            parseArgs(matches: RegExpMatchArray): ICommandArgs {
+                return {
+                    item: matches[1],
+                    operator: "(decrease by)",
+                    value: "1",
+                };
+            },
+        },
+        {
+            test: new RegExpMatchTest(/increment (.+)/i),
+            parseArgs(matches: RegExpMatchArray): ICommandArgs {
+                return {
+                    item: matches[1],
+                    operator: "(increase by)",
+                    value: "1",
+                };
+            },
+        },
+        {
             test: new RegExpMatchTest(/(make|set) (.+) (equal|to) (.+)/i),
             parseArgs(matches: RegExpMatchArray): ICommandArgs {
                 return {

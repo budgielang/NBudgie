@@ -1,6 +1,9 @@
 make abc equal 123
 set abc to 123
 
+decrement abc
+increment abc
+
 if abc equals 123
 if abc is equal to 123
 if abc is greater than 123
