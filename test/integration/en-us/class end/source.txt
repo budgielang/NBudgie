@@ -1,0 +1,17 @@
+class called Abc
+close the class
+
+class called Abc
+end the class
+
+class called Abc
+finish the class
+
+class called Abc
+close the class
+
+class called Abc
+end the class
+
+class called Abc
+finish the class
