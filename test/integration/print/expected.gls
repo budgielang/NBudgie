@@ -1,0 +1,7 @@
+print : abc
+print : (abc 123)
+print : (abc 123 def)
+
+print : abc
+print : (abc 123)
+print : (abc 123 def)

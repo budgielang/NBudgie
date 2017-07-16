@@ -16,6 +16,7 @@ import { createMathMin } from "./commands/math min";
 import { createMemberVariable } from "./commands/member variable";
 import { createMemberVariableDeclare } from "./commands/member variable declare";
 import { createOperation } from "./commands/operation";
+import { createPrint } from "./commands/print/index";
 import { createVariable } from "./commands/variable";
 import { createWhileBreak } from "./commands/while break";
 import { createWhileEnd } from "./commands/while end";
@@ -42,6 +43,7 @@ export const createParser = () =>
         "member variable": createMemberVariable(),
         "member variable declare": createMemberVariableDeclare(),
         "operation": createOperation(),
+        "print": createPrint(),
         "variable": createVariable(),
         "while break": createWhileBreak(),
         "while end": createWhileEnd(),

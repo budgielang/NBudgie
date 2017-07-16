@@ -1,0 +1,7 @@
+log that abc
+print that abc 123
+log the abc 123 def
+
+log abc
+print abc 123
+log abc 123 def
