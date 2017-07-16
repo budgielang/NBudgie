@@ -39,13 +39,18 @@ export class Parser {
      * Parses a raw string line into GLS.
      *
      * @param line   A raw string line to convert.
+     * @param deep   Whether this is within a recursive command.
      * @returns The equivalent GLS, if possible.
      */
-    public async parseLine(line: string): Promise<string[] | undefined> {
+    public async parseLine(line: string, deep?: true): Promise<string[] | undefined> {
         for (const commandName of this.dependencies.commandNames) {
             const matchersList = await this.dependencies.commandsAndMatchersFactory.getMatchersList(commandName);
 
             for (const matcher of matchersList.matchers) {
+                if (deep !== true && matcher.onlyDeep === true) {
+                    continue;
+                }
+
                 const match = matcher.test.execute(line);
                 if (match === undefined) {
                     continue;
@@ -75,7 +80,7 @@ export class Parser {
 
             for (const section of shallowLine) {
                 if (section[0] === "{") {
-                    realLine += `{ ${await this.parseLine(section.slice("{ ".length, section.length - " }".length))} }`;
+                    realLine += `{ ${await this.parseLine(section.slice("{ ".length, section.length - " }".length), true)} }`;
                 } else {
                     realLine += section;
                 }

@@ -18,6 +18,11 @@ export interface IMatchTest {
  */
 export interface IMatcher<TCommandArgs extends {} = {}> {
     /**
+     * Whether this should only be allowed within other commands.
+     */
+    onlyDeep?: boolean;
+
+    /**
      * Tests whether a string matches a command.
      */
     test: IMatchTest;

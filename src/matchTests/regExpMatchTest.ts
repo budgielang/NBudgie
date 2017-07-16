@@ -26,12 +26,10 @@ export class RegExpMatchTest implements IMatchTest {
      */
     public execute(input: string): string[] | undefined {
         const match = this.expression.exec(input);
-        if (match === null) { // tslint:disable-line:no-null-keyword
-            return;
-        }
-
         this.expression.lastIndex = 0;
 
-        return match;
+        return match === null // tslint:disable-line:no-null-keyword
+            ? undefined
+            : match;
     }
 }
