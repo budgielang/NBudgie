@@ -1,5 +1,5 @@
 dist
 lib
 node_modules
-./**/*.js
-!*.js
+*.js
+!gulpfile.js
