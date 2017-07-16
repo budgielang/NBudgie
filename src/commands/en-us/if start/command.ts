@@ -13,6 +13,9 @@ export class Command implements ICommand<ICommandArgs> {
         }
 
         return {
+            contextChange: {
+                enter: "if start",
+            },
             lines: [
                 ["if start : ", conditional],
             ],
