@@ -52,11 +52,38 @@ export class Parser {
                 }
 
                 const command = await this.dependencies.commandsAndMatchersFactory.getCommand(commandName);
+                const shallowRendered = command.render(matcher.parseArgs(match));
 
-                return command.render(matcher.parseArgs(match));
+                return await this.recurseIntoCommand(shallowRendered);
             }
         }
 
         return undefined;
+    }
+
+    /**
+     * Recursively renders a command.
+     *
+     * @param shallowRenderedLines   Lines of GLS or recursive commands.
+     * @returns A Promise for lines of GLS.
+     */
+    private async recurseIntoCommand(shallowRenderedLines: string[][]): Promise<string[]> {
+        const realRenderedLines: string[] = [];
+
+        for (const shallowLine of shallowRenderedLines) {
+            let realLine = "";
+
+            for (const section of shallowLine) {
+                if (section[0] === "{") {
+                    realLine += await this.parseLine(section.slice("{ ".length, section.length - " }".length));
+                } else {
+                    realLine += section;
+                }
+            }
+
+            realRenderedLines.push(realLine);
+        }
+
+        return realRenderedLines;
     }
 }

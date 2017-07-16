@@ -15,6 +15,8 @@ export class Command implements ICommand<ICommandArgs> {
             output += ` ${value}`;
         }
 
-        return [output];
+        return [
+            [output],
+        ];
     }
 }

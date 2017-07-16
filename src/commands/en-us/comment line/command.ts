@@ -9,7 +9,7 @@ export class Command implements ICommand<ICommandArgs> {
         const { word } = args;
 
         return [
-            `comment line : ${word[0].toUpperCase()}${word.slice(1)}`,
+            [`comment line : ${word[0].toUpperCase()}${word.slice(1)}`],
         ];
     }
 }

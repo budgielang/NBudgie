@@ -8,7 +8,7 @@ export interface ICommand<TCommandArgs extends {} = {}> {
      * Renders command arguments into GLS.
      *
      * @param args   Parsed argument commands.
-     * @returns Lines of GLS.
+     * @returns Lines of GLS or recursive commands.
      */
-    render(args: TCommandArgs): string[];
+    render(args: TCommandArgs): string[][];
 }

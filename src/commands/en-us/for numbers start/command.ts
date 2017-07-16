@@ -11,7 +11,7 @@ export class Command implements ICommand<ICommandArgs> {
         const { end, name, start } = args;
 
         return [
-            `for numbers start : ${name} number ${start} ${end}`,
+            [`for numbers start : ${name} number ${start} ${end}`],
         ];
     }
 }

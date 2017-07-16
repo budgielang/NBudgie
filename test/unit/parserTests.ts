@@ -10,7 +10,7 @@ describe("Parser", () => {
     describe("parseLine", () => {
         it("renders with a single command that matches", async () => {
             // Arrange
-            const result = {};
+            const result = [""];
             const command = {
                 render: stub().returns(result),
             };
@@ -31,12 +31,12 @@ describe("Parser", () => {
             const parsed = await parser.parseLine("");
 
             // Assert
-            expect(parsed).to.be.equal(result);
+            expect(parsed).to.be.deep.equal(result);
         });
 
         it("renders with a matching command between non-matching commands", async () => {
             // Arrange
-            const result = {};
+            const result = [""];
             const invalidCommand = {
                 render: stub(),
             };
@@ -72,7 +72,7 @@ describe("Parser", () => {
             const parsed = await parser.parseLine("");
 
             // Assert
-            expect(parsed).to.be.equal(result);
+            expect(parsed).to.be.deep.equal(result);
         });
 
         it("returns undefined if no commands match", async () => {
