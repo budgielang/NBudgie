@@ -67,7 +67,7 @@ export class Parser {
                     continue;
                 }
 
-                const match = matcher.test.execute(line);
+                const match = matcher.test.execute(line, contextTracker);
                 if (match === undefined) {
                     continue;
                 }

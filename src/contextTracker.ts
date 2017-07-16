@@ -20,10 +20,7 @@ export interface IContextTracker {
     /**
      * Current state of the tracked context.
      */
-    readonly context: {
-        [i: number]: string;
-        length: number;
-    };
+    readonly context: string[];
 
     /**
      * Adds a change to the tracked context.
