@@ -1,0 +1,8 @@
+for each abc def in ghi
+close the loop
+
+for each abc def in ghi
+end the loop
+
+for each abc def in ghi
+finish the loop
