@@ -20,6 +20,11 @@ NGLS converts natural language to GLS syntax, which can then be converted into r
             <td><code>for numbers start : i number 0 10</code></td>
             <td><code>for (let i = 0; i < 10; i++) {</code></td>
         </tr>
+        <tr>
+            <td><code>How about a new int named count equal to 7</code></td>
+            <td><code>variable : count int 7</code></td>
+            <td><code>let count = 7;</code></td>
+        </tr>
     </tbody>
 </table>
 

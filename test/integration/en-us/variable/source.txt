@@ -1,0 +1,6 @@
+local variable named abc of type string
+new variable named abc of type float
+local variable named abc of type string equal to "hello"
+new variable named abc of type float equal to 3.5
+local int named abc
+local float named abc equal to -7

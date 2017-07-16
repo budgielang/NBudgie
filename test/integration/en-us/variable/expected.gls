@@ -1,0 +1,6 @@
+variable : abc string
+variable : abc float
+variable : abc string "hello"
+variable : abc float 3.5
+variable : abc int
+variable : abc float -7
