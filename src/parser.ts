@@ -1,39 +1,24 @@
 import { ICommand } from "./command";
+import { ICommandsAndMatchers } from "./commandsAndMatchers";
 import { ContextTracker, IContextTracker } from "./contextTracker";
-import { ICommandsAndMatchersFactory } from "./factories/commandsAndMatchersFactory";
 import { IMatcher } from "./matchers";
-
-/**
- * Dependencies to initialize a new instance of the Parser class.
- */
-export interface IParserDependencies {
-    /**
-     * Known names of commands.
-     */
-    commandNames: string[];
-
-    /**
-     * Imports commands and their paired matchers by name.
-     */
-    commandsAndMatchersFactory: ICommandsAndMatchersFactory;
-}
 
 /**
  * Parses raw string lines into GLS.
  */
 export class Parser {
     /**
-     * Imports commands and their paired matchers.
+     * Commands and their paired matchers by name.
      */
-    private readonly dependencies: IParserDependencies;
+    private readonly commandsAndMatchers: ICommandsAndMatchers;
 
     /**
      * Initializes a new instance of the Parser class.
      *
-     * @param dependencies   Dependencies to be used for initialization.
+     * @param commandsAndMatchers   Commands and their paired matchers by name.
      */
-    public constructor(dependencies: IParserDependencies) {
-        this.dependencies = dependencies;
+    public constructor(commandsAndMatchers: ICommandsAndMatchers) {
+        this.commandsAndMatchers = commandsAndMatchers;
     }
 
     /**
@@ -68,8 +53,8 @@ export class Parser {
      * @returns The equivalent GLS, if possible.
      */
     private async parseLine(line: string, contextTracker: IContextTracker, deep?: true): Promise<string[] | undefined> {
-        for (const commandName of this.dependencies.commandNames) {
-            const matchersList = await this.dependencies.commandsAndMatchersFactory.getMatchersList(commandName);
+        for (const commandName of Object.keys(this.commandsAndMatchers)) {
+            const matchersList = await this.commandsAndMatchers[commandName].matchersList;
 
             for (const matcher of matchersList.matchers) {
                 if (deep !== true && matcher.onlyDeep === true) {
@@ -81,7 +66,7 @@ export class Parser {
                     continue;
                 }
 
-                const command = await this.dependencies.commandsAndMatchersFactory.getCommand(commandName);
+                const command = this.commandsAndMatchers[commandName].command;
                 const shallowRendered = command.render(matcher.parseArgs(match), contextTracker);
 
                 if (shallowRendered.contextChange !== undefined) {

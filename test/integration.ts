@@ -1,4 +1,4 @@
 import { ComparisonTestsRunner } from "./comparisonTestsRunner";
 
-const integrationTests = new ComparisonTestsRunner("test/integration/en-us");
+const integrationTests = new ComparisonTestsRunner("test/integration");
 integrationTests.run();

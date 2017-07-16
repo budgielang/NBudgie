@@ -4,8 +4,7 @@ import * as minimatch from "minimatch";
 import "mocha";
 import * as path from "path";
 
-import { ClassInstanceFactory } from "../lib/factories/classInstanceFactory";
-import { CommandsAndMatchersFactory } from "../lib/factories/commandsAndMatchersFactory";
+import { createParser } from "../lib/createParser";
 import { Parser } from "../lib/parser";
 
 /**
@@ -44,20 +43,12 @@ export class ComparisonTestsRunner {
      * @param commandsToRun   Command groups to run, if not all.
      */
     public constructor(section: string, commandsToRun: Set<string> = new Set<string>(["*"])) {
-        const rootDirectory = path.join(__dirname, "../lib/commands/en-us");
+        const rootDirectory = path.join(__dirname, "../lib/commands");
         this.section = section;
         this.commandsToRun = commandsToRun;
         this.rootPath = path.resolve(section);
         this.commandTests = readTestsUnderPath(this.rootPath, this.commandsToRun);
-        this.parser = new Parser({
-            commandNames: fs.readdirSync(rootDirectory),
-            commandsAndMatchersFactory: new CommandsAndMatchersFactory({
-                classInstanceFactory: new ClassInstanceFactory({
-                    importFile: (filePath: string) => Promise.resolve(require((filePath))),
-                    rootDirectory,
-                }),
-            }),
-        });
+        this.parser = createParser();
     }
 
     /**

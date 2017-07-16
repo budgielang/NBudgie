@@ -35,12 +35,10 @@
   "dependencies": {
     "@types/chai": "^4.0.1",
     "@types/mocha": "^2.2.41",
-    "@types/mz": "0.0.31",
     "@types/sinon": "^2.3.2",
     "@types/sinon-chai": "^2.7.28",
     "chai": "^4.1.0",
     "mocha": "^3.4.2",
-    "mz": "^2.6.0",
     "sinon": "^2.3.8",
     "sinon-chai": "^2.11.0"
   },

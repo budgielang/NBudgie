@@ -1,2 +1,2 @@
-export { createParserFactory } from "./createParserFactory";
-export { IParserFactoryDependencies, ParserFactory } from "./factories/parserFactory";
+export { createParser } from "./createParser";
+export { Parser } from "./parser";
