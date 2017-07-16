@@ -1,0 +1,6 @@
+as long as abc
+so long as abc123
+while abc123
+as long as abc is equal to 123
+so long as abc123 is equal to 456
+while abc123 is equal to def456

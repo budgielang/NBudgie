@@ -1,0 +1,6 @@
+while start : abc
+while start : abc123
+while start : abc123
+while start : { operation : abc (equal to) 123 }
+while start : { operation : abc123 (equal to) 456 }
+while start : { operation : abc123 (equal to) def456 }
