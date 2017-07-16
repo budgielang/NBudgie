@@ -93,6 +93,7 @@ export class ComparisonTestsRunner {
 
         expect(actual).to.be.deep.equal(expected);
     }
+
     /**
      * Reads the code contents of a test file.
      *

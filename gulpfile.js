@@ -76,13 +76,17 @@ gulp.task("src:tslint", function () {
 
 gulp.task("src:tsc", function () {
     var merge = require("merge2");
+    var sourcemaps = require("gulp-sourcemaps");
     var tsProject = getTsProject("tsconfig.json");
     var tsResult = gulp.src("src/**/*.ts")
+        .pipe(sourcemaps.init())
         .pipe(tsProject());
 
     return merge([
         tsResult.dts.pipe(gulp.dest("lib")),
-        tsResult.js.pipe(gulp.dest("lib"))
+        tsResult.js
+            .pipe(sourcemaps.write())
+            .pipe(gulp.dest("lib"))
     ]);
 });
 
