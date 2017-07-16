@@ -1,0 +1,7 @@
+math floor : abc
+math floor : -abc123
+math floor : 123
+
+math floor : -abc
+math floor : abc123
+math floor : -123

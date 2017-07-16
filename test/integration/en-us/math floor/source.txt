@@ -1,0 +1,7 @@
+floor equivalent for abc
+floored equivalent of -abc123
+rounded down equivalent to 123
+
+floor value for -abc
+floored value of abc123
+rounded down value to -123
