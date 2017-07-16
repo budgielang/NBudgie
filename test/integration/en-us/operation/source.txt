@@ -1,0 +1,12 @@
+if abc equals 123
+if abc is equal to 123
+if abc is greater than 123
+if abc is greater than or equal to 123
+if abc is less than 123
+if abc is less than or equal to 123
+if abc is not equal to 123
+if abc isn't equal to 123
+if abc is over 123
+if abc is over or equal to 123
+if abc is under 123
+if abc is under or equal to 123

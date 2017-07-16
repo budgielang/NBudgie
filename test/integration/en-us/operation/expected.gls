@@ -1,0 +1,12 @@
+if start : { operation : abc (equal to) 123 }
+if start : { operation : abc (equal to) 123 }
+if start : { operation : abc (greater than) 123 }
+if start : { operation : abc (greater than or equal to) 123 }
+if start : { operation : abc (less than) 123 }
+if start : { operation : abc (less than or equal to) 123 }
+if start : { operation : abc (not equal to) 123 }
+if start : { operation : abc (not equal to) 123 }
+if start : { operation : abc (greater than) 123 }
+if start : { operation : abc (greater than or equal to) 123 }
+if start : { operation : abc (less than) 123 }
+if start : { operation : abc (less than or equal to) 123 }
