@@ -47,31 +47,8 @@ gulp.task("dist:dev", function () {
         .pipe(gulp.dest("./dist"));
 });
 
-gulp.task("dist:min", function () {
-    var browserify = require("browserify");
-    var buffer = require("vinyl-buffer");
-    var uglify = require("gulp-uglify");
-    var source = require("vinyl-source-stream");
-    var tsify = require("tsify");
-
-    var browsering = browserify({
-        cache: {},
-        entries: "./src/index.ts",
-        packageCache: {},
-        standalone: "general-language-syntax"
-    });
-
-    return browsering
-        .plugin(tsify)
-        .bundle()
-        .pipe(source("Gls.min.js"))
-        .pipe(buffer())
-        .pipe(uglify())
-        .pipe(gulp.dest("./dist"));
-});
-
 gulp.task("dist", function (callback) {
-    require("run-sequence")("dist:clean", "dist:dev", "dist:min", callback);
+    require("run-sequence")("dist:clean", "dist:dev", callback);
 });
 
 gulp.task("clean", function (callback) {
