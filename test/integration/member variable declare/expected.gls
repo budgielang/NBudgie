@@ -1,3 +1,5 @@
+class start : Abc
+
 member variable declare : private abc def
 member variable declare : protected abc def
 member variable declare : public abc def

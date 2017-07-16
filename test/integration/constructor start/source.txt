@@ -1,4 +1,14 @@
-create a new Abc
+class called Abc
 make a new Abc
+that is how we do it
+end the class
+
+class called Abc
 instantiate a new Abc
+that is how we do it
+end the class
+
+class called Abc
 spin up a new Abc
+that is how we do it
+end the class

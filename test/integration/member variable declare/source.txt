@@ -1,3 +1,5 @@
+class called Abc
+
 private member named abc of type def
 protected member named abc of type def
 public member named abc of type def

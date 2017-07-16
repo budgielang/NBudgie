@@ -1,14 +1,7 @@
 class start : Abc
 constructor start : Abc
 constructor end
-class end
 
 class start : Abc
 constructor start : Abc
 constructor end
-class end
-
-class start : Abc
-constructor start : Abc
-constructor end
-class end

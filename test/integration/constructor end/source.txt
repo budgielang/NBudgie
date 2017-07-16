@@ -1,0 +1,7 @@
+class called Abc
+to create a new Abc
+that is how we do it
+
+class called Abc
+to create a new Abc
+and that is how you create a new Abc

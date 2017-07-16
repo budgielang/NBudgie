@@ -9,6 +9,9 @@ export class Command implements ICommand<ICommandArgs> {
         const { className } = args;
 
         return {
+            contextChange: {
+                enter: "constructor start",
+            },
             lines: [
                 [`constructor start : ${className}`],
             ],
