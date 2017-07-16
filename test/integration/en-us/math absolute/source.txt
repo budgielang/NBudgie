@@ -1,0 +1,7 @@
+absolute equivalent for abc
+absolute equivalent of -abc123
+absolute equivalent to 123
+
+absolute value for -abc
+absolute value of abc123
+absolute value to -123

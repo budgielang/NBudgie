@@ -1,0 +1,7 @@
+math absolute : abc
+math absolute : -abc123
+math absolute : 123
+
+math absolute : -abc
+math absolute : abc123
+math absolute : -123
