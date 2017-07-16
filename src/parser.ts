@@ -42,7 +42,10 @@ export class Parser {
 
         for (const line of lines) {
             const parsedLine = await this.parseLine(line, contextTracker);
-            if (parsedLine !== undefined) {
+
+            if (parsedLine === undefined) {
+                results.push("");
+            } else {
                 results.push(...parsedLine);
             }
         }

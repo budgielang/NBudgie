@@ -104,7 +104,7 @@ describe("Parser", () => {
             const parsed = await parser.parseLines([""]);
 
             // Assert
-            expect(parsed).to.be.deep.equal([]);
+            expect(parsed).to.be.deep.equal([""]);
         });
     });
 });
