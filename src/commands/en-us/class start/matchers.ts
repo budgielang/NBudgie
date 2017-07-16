@@ -6,6 +6,15 @@ import { ICommandArgs } from "./command";
 export class MatchersList implements IMatchersList {
     public readonly matchers = [
         {
+            test: new RegExpMatchTest(/class (called|named) (.+) (extending|that extends)(( from)*) (.+)/i),
+            parseArgs(matches: RegExpMatchArray): ICommandArgs {
+                return {
+                    classDescriptor: matches[2],
+                    parentClassDescriptor: matches[6],
+                };
+            },
+        },
+        {
             test: new RegExpMatchTest(/class (called|named) (.+)/i),
             parseArgs(matches: RegExpMatchArray): ICommandArgs {
                 return {

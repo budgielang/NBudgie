@@ -23,7 +23,7 @@ export class Command implements ICommand<ICommandArgs> {
                 enter: "class start",
             },
             lines: [
-                ["class start : ", ...classArgs],
+                [`class start : ${classArgs.join(" ")}`],
             ],
         };
     }

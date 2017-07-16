@@ -1,1 +1,5 @@
 class start : Abc
+class start : Abc
+
+class start : Abc extends Def
+class start : Abc extends Def

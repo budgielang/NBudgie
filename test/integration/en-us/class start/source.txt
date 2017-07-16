@@ -1,1 +1,5 @@
 class called Abc
+class named Abc
+
+class named Abc extending Def
+class named Abc that extends from Def
