@@ -75,7 +75,7 @@ export class Parser {
 
             for (const section of shallowLine) {
                 if (section[0] === "{") {
-                    realLine += await this.parseLine(section.slice("{ ".length, section.length - " }".length));
+                    realLine += `{ ${await this.parseLine(section.slice("{ ".length, section.length - " }".length))} }`;
                 } else {
                     realLine += section;
                 }
