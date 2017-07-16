@@ -13,6 +13,9 @@ export class Command implements ICommand<ICommandArgs> {
         }
 
         return {
+            contextChange: {
+                enter: "while start",
+            },
             lines: [
                 ["while start : ", conditional],
             ],
