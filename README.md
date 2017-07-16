@@ -5,7 +5,7 @@
 
 A natural language layer on top of GLS.
 
-General Language Syntax (GLS) is a unified syntax that compiles into a number of OOP languages.
+[General Language Syntax (GLS)](https://github.com/highschoolhacking/gls) is a unified syntax that compiles into a number of OOP languages.
 NGLS converts natural language to GLS syntax, which can then be converted into real code.
 
 <table>
