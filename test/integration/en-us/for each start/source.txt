@@ -1,0 +1,3 @@
+for each abc in def of type ghi
+for each abc of type def in ghi
+for each abc def in ghi
