@@ -13,7 +13,7 @@ export class MatchersList implements IMatchersList {
             },
         },
         {
-            test: new RegExpMatchTest(/(comment|note): (.+)/i),
+            test: new RegExpMatchTest(/(comment|note|protip): (.+)/i),
             parseArgs(matches: RegExpMatchArray): ICommandArgs {
                 return {
                     word: matches[2],

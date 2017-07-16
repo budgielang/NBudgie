@@ -1,3 +1,6 @@
+comment: abc
+note: abc 123
+protip: 123
 protip: comment noting abcd 1234
 write a note that abc def ghi
 write a comment: abc def ghi
