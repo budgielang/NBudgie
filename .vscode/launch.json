@@ -2,6 +2,28 @@
     "version": "0.1.0",
     "configurations": [
         {
+            "name": "Debug Unit Tests",
+            "type": "node",
+            "request": "launch",
+            "program": "${workspaceRoot}/node_modules/mocha/bin/_mocha",
+            "stopOnEntry": false,
+            "args": ["--reporter", "spec", "--colors", "--no-timeouts", "test/unit/setup.js", "test/unit/**/*.js"],
+            "cwd": "${workspaceRoot}",
+            "runtimeExecutable": null,
+            "runtimeArgs": [
+                "--nolazy"
+            ],
+            "env": {
+                "NODE_ENV": "development"
+            },
+            "console": "internalConsole",
+            "sourceMaps": true, 
+            "outFiles": [
+                "${workspaceRoot}/lib/**/*.js",
+                "${workspaceRoot}/test/**/*.js"
+            ]
+        },
+        {
             "name": "Debug Integration Tests",
             "type": "node",
             "request": "launch",
