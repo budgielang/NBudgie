@@ -1,3 +1,6 @@
+operation : abc equals 123
+operation : abc equals 123
+
 if start : { operation : abc (equal to) 123 }
 if start : { operation : abc (equal to) 123 }
 if start : { operation : abc (greater than) 123 }
