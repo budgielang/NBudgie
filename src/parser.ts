@@ -36,6 +36,12 @@ export class Parser {
         this.dependencies = dependencies;
     }
 
+    /**
+     * Parses raw lines of text into GLS.
+     *
+     * @param lines   Raw lines to convert.
+     * @returns A Promise for converting the lines.
+     */
     public async parseLines(lines: string[]): Promise<string[]> {
         const contextTracker = new ContextTracker();
         const results: string[] = [];

@@ -42,7 +42,7 @@ gulp.task("dist:dev", function () {
     return browsering
         .plugin(tsify)
         .bundle()
-        .pipe(source("Gls.js"))
+        .pipe(source("Ngls.js"))
         .pipe(buffer())
         .pipe(gulp.dest("./dist"));
 });
