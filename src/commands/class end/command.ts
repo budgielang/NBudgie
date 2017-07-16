@@ -4,7 +4,7 @@ export class Command implements ICommand<{}> {
     public render() {
         return {
             contextChange: {
-                exit: "class end",
+                exit: "class start",
             },
             lines: [
                 ["class end"],
