@@ -1,6 +1,7 @@
 import { createClassEnd } from "./commands/class end";
 import { createClassStart } from "./commands/class start";
 import { createCommentLine } from "./commands/comment line";
+import { createConstructorStart } from "./commands/constructor start/index";
 import { createForEachEnd } from "./commands/for each end";
 import { createForEachStart } from "./commands/for each start";
 import { createForNumbersEnd } from "./commands/for numbers end";
@@ -25,6 +26,7 @@ export const createParser = () =>
         "class end": createClassEnd(),
         "class start": createClassStart(),
         "comment line": createCommentLine(),
+        "constructor start": createConstructorStart(),
         "for each end": createForEachEnd(),
         "for each start": createForEachStart(),
         "for numbers end": createForNumbersEnd(),
