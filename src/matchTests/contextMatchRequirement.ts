@@ -35,7 +35,7 @@ export class ContextMatchRequirement implements IMatchRequirement {
      */
     public test(input: string, contextTracker: IContextTracker): boolean {
         if (!this.allowDeep) {
-            return this.command === contextTracker.context[0];
+            return this.command === contextTracker.context[contextTracker.context.length - 1];
         }
 
         for (const command of contextTracker.context) {
