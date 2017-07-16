@@ -44,7 +44,7 @@ describe("ContextTracker", () => {
             ]);
         });
 
-        it("removes a string from an existing context", () => {
+        it("removes a recent string from an existing context", () => {
             // Arrange
             const tracker = new ContextTracker();
             const changes = [
@@ -60,12 +60,37 @@ describe("ContextTracker", () => {
 
             // Act
             tracker.change({
-                exit: true,
+                exit: changes[1].enter,
             });
 
             // Assert
             expect(tracker.context).to.be.deep.equal([
                 changes[0].enter,
+            ]);
+        });
+
+        it("removes a deep string from an existing context", () => {
+            // Arrange
+            const tracker = new ContextTracker();
+            const changes = [
+                {
+                    enter: "abc",
+                },
+                {
+                    enter: "def",
+                },
+            ];
+            tracker.change(changes[0]);
+            tracker.change(changes[1]);
+
+            // Act
+            tracker.change({
+                exit: changes[0].enter,
+            });
+
+            // Assert
+            expect(tracker.context).to.be.deep.equal([
+                changes[1].enter,
             ]);
         });
     });

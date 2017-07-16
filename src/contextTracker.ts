@@ -8,9 +8,9 @@ export interface IContextChange {
     enter?: string;
 
     /**
-     * Whether this removes the top command from the stack.
+     * Command to remove from the stack, if any.
      */
-    exit?: boolean;
+    exit?: string;
 }
 
 /**
@@ -45,8 +45,8 @@ export class ContextTracker implements IContextTracker {
      * @param change   How a command changes the stack.
      */
     public change(change: IContextChange): void {
-        if (change.exit === true) {
-            this.context.pop();
+        if (change.exit !== undefined) {
+            this.context.splice(this.context.lastIndexOf(change.exit), 1);
         }
 
         if (change.enter !== undefined) {
