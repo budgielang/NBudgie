@@ -1,5 +1,11 @@
 if abc
-close the if block
+close the if
+
+if abc
+end the if
+
+if abc
+finish the if
 
 if abc
 end the if block
