@@ -1,0 +1,29 @@
+member variable : private abc def
+member variable : protected abc def
+member variable : public abc def
+member variable : public abc def
+
+member variable : private abc def
+member variable : protected abc def
+member variable : public abc def
+member variable : public abc def
+
+member variable : private abc def
+member variable : protected abc def
+member variable : public abc def
+member variable : public abc def
+
+member variable : private { this } def
+member variable : protected { this } def
+member variable : public { this } def
+member variable : public { this } def
+
+member variable : private { this } def
+member variable : protected { this } def
+member variable : public { this } def
+member variable : public { this } def
+
+member variable : private { this } def
+member variable : protected { this } def
+member variable : public { this } def
+member variable : public { this } def

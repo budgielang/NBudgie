@@ -1,0 +1,29 @@
+abc's private def
+abc's protected def
+abc's public def
+abc's def
+
+abc's private member def
+abc's protected member def
+abc's public member def
+abc's member def
+
+abc's private property def
+abc's protected property def
+abc's public property def
+abc's property def
+
+our private def
+our protected def
+our public def
+our def
+
+our private member def
+our protected member def
+our public member def
+our member def
+
+our private property def
+our protected property def
+our public property def
+our property def
