@@ -16,6 +16,11 @@ NGLS converts natural language to GLS syntax, which can then be converted into r
     </thead>
     <tbody>
         <tr>
+            <td><code>Comment that this is an awesome project</code></td>
+            <td><code>comment line : This is an awesome project</code></td>
+            <td><code>// This is an awesome project</code></td>
+        </tr>
+        <tr>
             <td><code>Gimme a for loop for i from 0 to 10 pls</code></td>
             <td><code>for numbers start : i number 0 10</code></td>
             <td><code>for (let i = 0; i < 10; i++) {</code></td>
