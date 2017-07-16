@@ -2,20 +2,20 @@ import { ICommand } from "../../../command";
 
 export interface ICommandArgs {
     classDescriptor: string;
-    interfaceName?: string[];
-    parentClassDescriptor?: string;
+    extends?: string;
+    implements?: string[];
 }
 
 export class Command implements ICommand<ICommandArgs> {
     public render(args: ICommandArgs) {
         const classArgs: string[] = [args.classDescriptor];
 
-        if (args.parentClassDescriptor !== undefined) {
-            classArgs.push("extends", args.parentClassDescriptor);
+        if (args.extends !== undefined) {
+            classArgs.push("extends", args.extends);
         }
 
-        if (args.interfaceName !== undefined) {
-            classArgs.push("implements", ...args.interfaceName);
+        if (args.implements !== undefined) {
+            classArgs.push("implements", ...args.implements);
         }
 
         return {

@@ -3,3 +3,20 @@ class start : Abc
 
 class start : Abc extends Def
 class start : Abc extends Def
+class start : Abc extends Def
+
+class start : Abc1 extends Def implements Ghi
+class start : Abc2 extends Def implements Ghi Jkl
+class start : Abc3 extends Def implements Ghi Jkl Mno
+
+class start : Abc4 extends Def implements Ghi
+class start : Abc5 extends Def implements Ghi Jkl
+class start : Abc6 extends Def implements Ghi Jkl Mno
+
+class start : Abc7 extends Def implements Ghi
+class start : Abc8 extends Def implements Ghi Jkl
+class start : Abc9 extends Def implements Ghi Jkl Mno
+
+class start : Abc extends Def implements Ghi
+class start : Abc extends Def implements Ghi Jkl
+class start : Abc extends Def implements Ghi Jkl Mno

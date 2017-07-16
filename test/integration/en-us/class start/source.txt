@@ -2,4 +2,21 @@ class called Abc
 class named Abc
 
 class named Abc extending Def
+class named Abc extending from Def
 class named Abc that extends from Def
+
+class named Abc1 extending Def and implementing Ghi
+class named Abc2 extending from Def and implementing Ghi and Jkl
+class named Abc3 that extends from Def and implementing Ghi, Jkl, and Mno
+
+class named Abc4 extending Def that implements Ghi
+class named Abc5 extending from Def that implements Ghi and Jkl
+class named Abc6 that extends from Def that implements Ghi, Jkl, and Mno
+
+class named Abc7 implementing Ghi and extending Def
+class named Abc8 implementing Ghi and Jkl and extending from Def
+class named Abc9 implementing Ghi, Jkl, and Mno that extends from Def
+
+class named Abc that implements Ghi and extends Def
+class named Abc that implements Ghi and Jkl and extends from Def
+class named Abc that implements Ghi, Jkl, and Mno and extends from Def
