@@ -11,6 +11,9 @@ export class Command implements ICommand<ICommandArgs> {
         const { end, name, start } = args;
 
         return {
+            contextChange: {
+                enter: "for numbers start",
+            },
             lines: [
                 [`for numbers start : ${name} number ${start} ${end}`],
             ],
