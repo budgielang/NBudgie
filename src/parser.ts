@@ -1,4 +1,5 @@
 import { ICommand } from "./command";
+import { ContextTracker, IContextTracker } from "./contextTracker";
 import { ICommandsAndMatchersFactory } from "./factories/commandsAndMatchersFactory";
 import { IMatcher } from "./matchers";
 
@@ -35,14 +36,29 @@ export class Parser {
         this.dependencies = dependencies;
     }
 
+    public async parseLines(lines: string[]): Promise<string[]> {
+        const contextTracker = new ContextTracker();
+        const results: string[] = [];
+
+        for (const line of lines) {
+            const parsedLine = await this.parseLine(line, contextTracker);
+            if (parsedLine !== undefined) {
+                results.push(...parsedLine);
+            }
+        }
+
+        return results;
+    }
+
     /**
      * Parses a raw string line into GLS.
      *
      * @param line   A raw string line to convert.
+     * @param contextTracker   Tracks the command context stack.
      * @param deep   Whether this is within a recursive command.
      * @returns The equivalent GLS, if possible.
      */
-    public async parseLine(line: string, deep?: true): Promise<string[] | undefined> {
+    private async parseLine(line: string, contextTracker: IContextTracker, deep?: true): Promise<string[] | undefined> {
         for (const commandName of this.dependencies.commandNames) {
             const matchersList = await this.dependencies.commandsAndMatchersFactory.getMatchersList(commandName);
 
@@ -57,9 +73,13 @@ export class Parser {
                 }
 
                 const command = await this.dependencies.commandsAndMatchersFactory.getCommand(commandName);
-                const shallowRendered = command.render(matcher.parseArgs(match));
+                const shallowRendered = command.render(matcher.parseArgs(match), contextTracker);
 
-                return await this.recurseIntoCommand(shallowRendered);
+                if (shallowRendered.contextChange !== undefined) {
+                    contextTracker.change(shallowRendered.contextChange);
+                }
+
+                return await this.recurseIntoCommand(shallowRendered.lines, contextTracker);
             }
         }
 
@@ -70,9 +90,10 @@ export class Parser {
      * Recursively renders a command.
      *
      * @param shallowRenderedLines   Lines of GLS or recursive commands.
+     * @param contextTracker   Tracks the command context stack.
      * @returns A Promise for lines of GLS.
      */
-    private async recurseIntoCommand(shallowRenderedLines: string[][]): Promise<string[]> {
+    private async recurseIntoCommand(shallowRenderedLines: string[][], contextTracker: IContextTracker): Promise<string[]> {
         const realRenderedLines: string[] = [];
 
         for (const shallowLine of shallowRenderedLines) {
@@ -80,7 +101,8 @@ export class Parser {
 
             for (const section of shallowLine) {
                 if (section[0] === "{") {
-                    realLine += `{ ${await this.parseLine(section.slice("{ ".length, section.length - " }".length), true)} }`;
+                    const recursion = await this.parseLine(section.slice("{ ".length, section.length - " }".length), contextTracker, true);
+                    realLine += `{ ${recursion} }`;
                 } else {
                     realLine += section;
                 }

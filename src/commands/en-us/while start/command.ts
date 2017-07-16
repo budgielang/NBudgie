@@ -12,8 +12,10 @@ export class Command implements ICommand<ICommandArgs> {
             conditional = `{ ${conditional} }`;
         }
 
-        return [
-            ["while start : ", conditional],
-        ];
+        return {
+            lines: [
+                ["while start : ", conditional],
+            ],
+        };
     }
 }

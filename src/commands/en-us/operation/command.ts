@@ -10,8 +10,10 @@ export class Command implements ICommand<ICommandArgs> {
     public render(args: ICommandArgs) {
         const { item, operator, value } = args;
 
-        return [
-            [`operation : ${item} ${operator} ${value}`],
-        ];
+        return {
+            lines: [
+                [`operation : ${item} ${operator} ${value}`],
+            ],
+        };
     }
 }

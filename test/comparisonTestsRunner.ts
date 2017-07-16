@@ -81,15 +81,7 @@ export class ComparisonTestsRunner {
     public async runCommandTest(command: string): Promise<void> {
         const source = this.readCommandFile(command, "source.txt");
         const expected = this.readCommandFile(command, "expected.gls");
-        const actual = [];
-
-        for (const sourceLine of source) {
-            const actualLine = await this.parser.parseLine(sourceLine);
-            actual.push(
-                ...(actualLine === undefined
-                    ? [""]
-                    : actualLine));
-        }
+        const actual = await this.parser.parseLines(source);
 
         expect(actual).to.be.deep.equal(expected);
     }

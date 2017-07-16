@@ -1,17 +1,20 @@
 import { expect } from "chai";
 import { stub } from "sinon";
 
+import { ICommand, IRenderedCommand } from "../../lib/command";
 import { ClassInstanceFactory } from "../../lib/factories/classInstanceFactory";
 import { CommandsAndMatchersFactory } from "../../lib/factories/commandsAndMatchersFactory";
 import { RegExpMatchTest } from "../../lib/matchTests/regExpMatchTest";
 import { Parser } from "../../lib/parser";
 
 describe("Parser", () => {
-    describe("parseLine", () => {
+    describe("parseLines", () => {
         it("renders with a single command that matches", async () => {
             // Arrange
-            const result = [""];
-            const command = {
+            const result: IRenderedCommand = {
+                lines: [[""]],
+            };
+            const command: ICommand = {
                 render: stub().returns(result),
             };
             const matchersList = {
@@ -28,19 +31,21 @@ describe("Parser", () => {
             const parser = new Parser({ commandNames, commandsAndMatchersFactory });
 
             // Act
-            const parsed = await parser.parseLine("");
+            const parsed = await parser.parseLines([""]);
 
             // Assert
-            expect(parsed).to.be.deep.equal(result);
+            expect(parsed).to.be.deep.equal(result.lines[0]);
         });
 
         it("renders with a matching command between non-matching commands", async () => {
             // Arrange
-            const result = [""];
-            const invalidCommand = {
+            const result: IRenderedCommand = {
+                lines: [[""]],
+            };
+            const invalidCommand: ICommand = {
                 render: stub(),
             };
-            const validCommand = {
+            const validCommand: ICommand = {
                 render: stub().returns(result),
             };
             const invalidMatchersList = {
@@ -69,13 +74,13 @@ describe("Parser", () => {
             const parser = new Parser({ commandNames, commandsAndMatchersFactory });
 
             // Act
-            const parsed = await parser.parseLine("");
+            const parsed = await parser.parseLines([""]);
 
             // Assert
-            expect(parsed).to.be.deep.equal(result);
+            expect(parsed).to.be.deep.equal(result.lines[0]);
         });
 
-        it("returns undefined if no commands match", async () => {
+        it("returns nothing if no commands match", async () => {
             // Arrange
             const invalidCommand = {
                 render: stub(),
@@ -96,10 +101,10 @@ describe("Parser", () => {
             const parser = new Parser({ commandNames, commandsAndMatchersFactory });
 
             // Act
-            const parsed = await parser.parseLine("");
+            const parsed = await parser.parseLines([""]);
 
             // Assert
-            expect(parsed).to.be.equal(undefined);
+            expect(parsed).to.be.deep.equal([]);
         });
     });
 });
