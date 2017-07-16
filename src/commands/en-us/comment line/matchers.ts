@@ -5,7 +5,7 @@ import { ICommandArgs } from "./command";
 export class MatchersList implements IMatchersList {
     public readonly matchers = [
         {
-            test: new RegExpMatchTest(/comment (noting|saying|that) (.+)/),
+            test: new RegExpMatchTest(/comment (noting|saying|that) (.+)/i),
             parseArgs(matches: RegExpMatchArray): ICommandArgs {
                 return {
                     word: matches[2],

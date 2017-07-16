@@ -6,7 +6,7 @@ export class MatchersList implements IMatchersList {
     public readonly matchers = [
         {
             onlyDeep: true,
-            test: new RegExpMatchTest(/(.+) (is not|isn't) equal to (.+)/),
+            test: new RegExpMatchTest(/(.+) (is not|isn't) equal to (.+)/i),
             parseArgs(matches: RegExpMatchArray): ICommandArgs {
                 return {
                     item: matches[1],
@@ -17,7 +17,7 @@ export class MatchersList implements IMatchersList {
         },
         {
             onlyDeep: true,
-            test: new RegExpMatchTest(/(.+) (is equal to|equals) (.+)/),
+            test: new RegExpMatchTest(/(.+) (is equal to|equals) (.+)/i),
             parseArgs(matches: RegExpMatchArray): ICommandArgs {
                 return {
                     item: matches[1],
@@ -28,7 +28,7 @@ export class MatchersList implements IMatchersList {
         },
         {
             onlyDeep: true,
-            test: new RegExpMatchTest(/(.+) is (greater than|over) or equal to (.+)/),
+            test: new RegExpMatchTest(/(.+) is (greater than|over) or equal to (.+)/i),
             parseArgs(matches: RegExpMatchArray): ICommandArgs {
                 return {
                     item: matches[1],
@@ -39,7 +39,7 @@ export class MatchersList implements IMatchersList {
         },
         {
             onlyDeep: true,
-            test: new RegExpMatchTest(/(.+) is (greater than|over) (.+)/),
+            test: new RegExpMatchTest(/(.+) is (greater than|over) (.+)/i),
             parseArgs(matches: RegExpMatchArray): ICommandArgs {
                 return {
                     item: matches[1],
@@ -50,7 +50,7 @@ export class MatchersList implements IMatchersList {
         },
         {
             onlyDeep: true,
-            test: new RegExpMatchTest(/(.+) is (less than|under) or equal to (.+)/),
+            test: new RegExpMatchTest(/(.+) is (less than|under) or equal to (.+)/i),
             parseArgs(matches: RegExpMatchArray): ICommandArgs {
                 return {
                     item: matches[1],
@@ -61,7 +61,7 @@ export class MatchersList implements IMatchersList {
         },
         {
             onlyDeep: true,
-            test: new RegExpMatchTest(/(.+) is (less than|under) (.+)/),
+            test: new RegExpMatchTest(/(.+) is (less than|under) (.+)/i),
             parseArgs(matches: RegExpMatchArray): ICommandArgs {
                 return {
                     item: matches[1],
