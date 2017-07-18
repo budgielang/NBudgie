@@ -8,7 +8,7 @@ export class MatchersList implements IMatchersList {
         {
             test: new RegExpMatchTest(
                 /(break|break out of) the while (block|statement)/i,
-                new ContextMatchRequirement("while start", true),
+                new ContextMatchRequirement("while start"),
                 new ContextClosestRequirement(
                     "while start",
                     [

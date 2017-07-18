@@ -1,5 +1,5 @@
 import { IMatchersList } from "../../matchers";
-import { ContextMatchRequirement } from "../../matchTests/contextMatchRequirement";
+import { ContextMatchDepth, ContextMatchRequirement } from "../../matchTests/contextMatchRequirement";
 import { RegExpMatchTest } from "../../matchTests/regExpMatchTest";
 
 export class MatchersList implements IMatchersList {
@@ -7,7 +7,7 @@ export class MatchersList implements IMatchersList {
         {
             test: new RegExpMatchTest(
                 /(that is|that's) how (we|you) (do it)|(create a new (.+))/i,
-                new ContextMatchRequirement("constructor start")),
+                new ContextMatchRequirement("constructor start", ContextMatchDepth.OnlyShallow)),
             parseArgs(matches: RegExpMatchArray): {} {
                 return {};
             },

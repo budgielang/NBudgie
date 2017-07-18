@@ -3,70 +3,66 @@ import * as path from "path";
 import { stub } from "sinon";
 
 import { IContextTracker } from "../../../lib/contextTracker";
-import { ContextMatchRequirement } from "../../../lib/matchTests/contextMatchRequirement";
-
-const stubCommand = "stub";
+import { ContextMatchDepth, ContextMatchRequirement } from "../../../lib/matchTests/contextMatchRequirement";
 
 describe("ContextMatchRequirement", () => {
     describe("test", () => {
-        it("allows a shallow matching command", () => {
-            // Arrange
-            const requirement = new ContextMatchRequirement(stubCommand);
-            const tracker: IContextTracker = {
-                change: stub(),
-                context: [stubCommand],
-            };
+        const stubCommand = "stub";
+        const stubCommandChanged = `${stubCommand} changed`;
 
-            // Act
-            const allowed = requirement.test("", tracker);
+        const descriptors = {
+            [stubCommand]: "matching command",
+            [stubCommandChanged]: "non-matching command",
+        };
 
-            // Assert
-            expect(allowed).to.be.equal(true);
+        const generateDescriptor = (context: [string] | [string, string], expected: boolean) => {
+            const prefix = expected
+                ? "allows"
+                : "doesn't allow";
+
+            const body = context
+                .map((command) => descriptors[command])
+                .reverse()
+                .join(" within a ");
+
+            return `${prefix} a ${body}`;
+        };
+
+        const testOrderToValidity = (context: [string] | [string, string], expected: boolean, depth?: ContextMatchDepth) => {
+            it(generateDescriptor(context, expected), () => {
+                // Arrange
+                const requirement = new ContextMatchRequirement(stubCommand, depth);
+                const tracker: IContextTracker = {
+                    change: stub(),
+                    context,
+                };
+
+                // Act
+                const allowed = requirement.test("", tracker);
+
+                // Assert
+                expect(allowed).to.be.equal(expected);
+            });
+        };
+
+        describe("default", () => {
+            testOrderToValidity([stubCommand], true);
+            testOrderToValidity([stubCommandChanged], false);
         });
 
-        it("rejects a missing command", () => {
-            // Arrange
-            const requirement = new ContextMatchRequirement(stubCommand);
-            const tracker: IContextTracker = {
-                change: stub(),
-                context: [`${stubCommand} changed`],
-            };
-
-            // Act
-            const allowed = requirement.test("", tracker);
-
-            // Assert
-            expect(allowed).to.be.equal(false);
+        describe("Any", () => {
+            testOrderToValidity([stubCommandChanged, stubCommand], true, ContextMatchDepth.Any);
+            testOrderToValidity([stubCommand, stubCommandChanged], true, ContextMatchDepth.Any);
         });
 
-        it("rejects a deep matching command if not set to allow deep", () => {
-            // Arrange
-            const requirement = new ContextMatchRequirement(stubCommand);
-            const tracker: IContextTracker = {
-                change: stub(),
-                context: [stubCommand, `${stubCommand} changed`],
-            };
-
-            // Act
-            const allowed = requirement.test("", tracker);
-
-            // Assert
-            expect(allowed).to.be.equal(false);
+        describe("OnlyShallow", () => {
+            testOrderToValidity([stubCommandChanged, stubCommand], true, ContextMatchDepth.OnlyShallow);
+            testOrderToValidity([stubCommand, stubCommandChanged], false, ContextMatchDepth.OnlyShallow);
         });
 
-        it("allows a deep matching command if set to allow deep", () => {
-            // Arrange
-            const requirement = new ContextMatchRequirement(stubCommand, true);
-            const tracker: IContextTracker = {
-                change: stub(),
-                context: [stubCommand, `${stubCommand} changed`],
-            };
-
-            // Act
-            const allowed = requirement.test("", tracker);
-
-            // Assert
-            expect(allowed).to.be.equal(true);
+        describe("OnlyDeep", () => {
+            testOrderToValidity([stubCommandChanged, stubCommand], false, ContextMatchDepth.OnlyDeep);
+            testOrderToValidity([stubCommand, stubCommandChanged], true, ContextMatchDepth.OnlyDeep);
         });
     });
 });

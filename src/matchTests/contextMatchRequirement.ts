@@ -2,28 +2,48 @@ import { IContextTracker } from "../contextTracker";
 import { IMatchRequirement } from "../matchers";
 
 /**
- * Tests whether matches are allowed to be executed in a type of context.
+ * How a command's location within a context may allow a match.
+ */
+export enum ContextMatchDepth {
+    /**
+     * The command may be anywhere in the context.
+     */
+    Any,
+
+    /**
+     * The command may be anywhere in the context except the top location.
+     */
+    OnlyDeep,
+
+    /**
+     * The command must be in the top location.
+     */
+    OnlyShallow,
+}
+
+/**
+ * Match restrictions based on prior command existence in the context.
  */
 export class ContextMatchRequirement implements IMatchRequirement {
-    /**
-     * Whether the context is allowed to be deep within the stack.
-     */
-    private readonly allowDeep: boolean;
-
     /**
      * Command that needs to be in the stack.
      */
     private readonly command: string;
 
     /**
+     * How the command's location within a context may allow a match.
+     */
+    private readonly depth: ContextMatchDepth;
+
+    /**
      * Initializes a new instance of the ContextMatchRequirement class.
      *
      * @param command   Command that needs to be in the stack.
-     * @param allowDeep   Whether the context is allowed to be deep within the stack.
+     * @param depth   How the command's location within a context may allow a match.
      */
-    public constructor(command: string, allowDeep: boolean = false) {
-        this.allowDeep = allowDeep;
+    public constructor(command: string, depth: ContextMatchDepth = ContextMatchDepth.Any) {
         this.command = command;
+        this.depth = depth;
     }
 
     /**
@@ -34,13 +54,15 @@ export class ContextMatchRequirement implements IMatchRequirement {
      * @returns Whether the match is allowed to be executed.
      */
     public test(input: string, contextTracker: IContextTracker): boolean {
-        if (!this.allowDeep) {
+        if (this.depth === ContextMatchDepth.OnlyShallow) {
             return this.command === contextTracker.context[contextTracker.context.length - 1];
         }
 
         for (const command of contextTracker.context) {
             if (command === this.command) {
-                return true;
+                return this.depth === ContextMatchDepth.OnlyDeep
+                    ? command !== contextTracker.context[contextTracker.context.length - 1]
+                    : true;
             }
         }
 

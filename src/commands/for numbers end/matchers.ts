@@ -1,5 +1,5 @@
 import { IMatchersList } from "../../matchers";
-import { ContextMatchRequirement } from "../../matchTests/contextMatchRequirement";
+import { ContextMatchDepth, ContextMatchRequirement } from "../../matchTests/contextMatchRequirement";
 import { RegExpMatchTest } from "../../matchTests/regExpMatchTest";
 
 export class MatchersList implements IMatchersList {
@@ -7,7 +7,7 @@ export class MatchersList implements IMatchersList {
         {
             test: new RegExpMatchTest(
                 /(close|end|finish) the for (block|loop)/i,
-                new ContextMatchRequirement("for numbers start")),
+                new ContextMatchRequirement("for numbers start", ContextMatchDepth.OnlyShallow)),
             parseArgs(matches: RegExpMatchArray): {} {
                 return {};
             },
