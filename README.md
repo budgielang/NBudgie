@@ -24,20 +24,16 @@ NGLS converts natural language to GLS syntax, which can then be converted into r
         </tr>
         <tr>
             <td>
-                <code>
-                    <pre>Let's start off with a joyous class named Painting
+                <code><pre>Let's start off with a joyous class named Painting
 First we'll give it a happy little private string named trees
 Then we add to that with a fun private member name, also of type int
-You know what, I think that's all we need. Let's end the class.</pre>
-                </code>
+You know what, I think that's all we need. Let's end the class.</pre></code>
             </td>
             <td>
-                <code>
-                    <pre>class start : Painting
+                <code><pre>class start : Painting
 member variable declare : private trees string
 member variable declare : private name string
-class end</pre>
-                </code>
+class end</pre></code>
             </td>
         </tr>
     </tbody>
