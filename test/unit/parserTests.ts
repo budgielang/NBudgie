@@ -74,19 +74,16 @@ describe("Parser", () => {
             expect(parsed).to.be.deep.equal(result.lines[0]);
         });
 
-        it("returns nothing if no commands match", async () => {
+        it("returns a blank string for a non-blank line", async () => {
             // Arrange
-            const result: IRenderedCommand = {
-                lines: [[""]],
-            };
             const parser = new Parser({
                 invalid: {
                     command: {
-                        render: stub().returns(result),
+                        render: stub(),
                     },
                     matchersList: {
                         matchers: [{
-                            parseArgs: stub(),
+                            parseArgs: stub().returns([]),
                             test: new RegExpMatchTest(/$a/),
                         }],
                     },
@@ -98,6 +95,34 @@ describe("Parser", () => {
 
             // Assert
             expect(parsed).to.be.deep.equal([""]);
+        });
+
+        it("returns a comment for a non-blank line if no commands match", async () => {
+            // Arrange
+            const unknownText = "unknown text";
+            const parser = new Parser({
+                invalid: {
+                    command: {
+                        render: stub(),
+                    },
+                    matchersList: {
+                        matchers: [{
+                            parseArgs: stub().returns([]),
+                            test: new RegExpMatchTest(/$a/),
+                        }],
+                    },
+                },
+            });
+
+            // Act
+            const parsed = await parser.parseLines([
+                unknownText,
+            ]);
+
+            // Assert
+            expect(parsed).to.be.deep.equal([
+                `comment line : ${unknownText}`,
+            ]);
         });
     });
 });

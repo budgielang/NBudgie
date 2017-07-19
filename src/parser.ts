@@ -32,10 +32,15 @@ export class Parser {
         const results: string[] = [];
 
         for (const line of lines) {
+            if (/^\s*$/.test(line)) {
+                results.push("");
+                continue;
+            }
+
             const parsedLine = this.parseLine(line, contextTracker);
 
             if (parsedLine === undefined) {
-                results.push("");
+                results.push(`comment line : ${line}`);
             } else {
                 results.push(...parsedLine);
             }
