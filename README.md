@@ -36,8 +36,16 @@ NGLS converts natural language to GLS syntax, which can then be converted into r
 
 ## Usage
 
-*(coming soon!)*
+```javascript
+const ngls = require("ngls");
 
+const nglsParser = ngls.createParser();
+
+// "comment line : Hello!"
+nglsParser.parseLines([
+    `note: Hello!`
+]);
+```
 
 ## Development
 
