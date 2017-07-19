@@ -49,41 +49,4 @@ nglsParser.parseLines([
 
 ## Development
 
-NGLS uses [Gulp](http://gulpjs.com/) to automate building, which requires [Node.js](http://node.js.org).
-
-To build from scratch, install Node.js and run the following commands:
-
-```
-npm install -g gulp
-npm install
-gulp
-```
-
-To build, run `gulp`.
-You can build+lint the souce without running tests using `gulp src`, or just build+lint+run tests using `gulp test`.
-The full list of tasks is in `gulpfile.js`.
-
-Alternately, use `tsc` to build source files under `/src` to `/lib`, and `tsc -w` to build upon file changes.
-
-### Commands
-
-Each supported GLS command needs a `matchers.ts` exporting a `MatchersList` and a `command.ts` exporting a `Command`.
-
-#### `MatchersList`
-
-Each command's `MatchersList` tests whether input strings can be converted to that GLS.
-If the string can, a `string[]` of matches from the `test` is converted to an object satisfying that command's `ICommandArgs`.
-
-For each list of tests, the first matching test (if any) will be used.
-Testers satisfy the `IMatchTest` interface and are typically implemented with a regular expression.
-
-#### `Command`
-
-A command takes in a settings object and converts it to lines of GLS and/or recursive NGLS command, as one `string[]` per line.
-Recursive NGLS commands must start with `"{ "` and end with `" }"`.
-
-### Tests
-
-Integration tests are done using BDD.
-Folders under `/test/integration` will contain a `source.txt` file with raw text source and an `expected.txt` file with the expected output.
-These are verifified during `gulp test:integration`.
+See [docs/Development.md](./docs/Development.md).
