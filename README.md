@@ -12,23 +12,33 @@ NGLS converts natural language to GLS syntax, which can then be converted into r
     <thead>
         <th>NGLS</th>
         <th>GLS</th>
-        <th>JavaScript</th>
     </thead>
     <tbody>
         <tr>
             <td><code>Comment that this is an awesome project</code></td>
             <td><code>comment line : This is an awesome project</code></td>
-            <td><code>// This is an awesome project</code></td>
         </tr>
         <tr>
             <td><code>Gimme a for loop for i from 0 to 10 pls</code></td>
             <td><code>for numbers start : i number 0 10</code></td>
-            <td><code>for (let i = 0; i < 10; i++) {</code></td>
         </tr>
         <tr>
-            <td><code>How about an int named count equal to 7</code></td>
-            <td><code>variable : count int 7</code></td>
-            <td><code>let count = 7;</code></td>
+            <td>
+                <code>
+                    <pre>Let's start off with a joyous class named Painting
+First we'll give it a happy little private string named trees
+Then we add to that with a fun private member name, also of type int
+You know what, I think that's all we need. Let's end the class.</pre>
+                </code>
+            </td>
+            <td>
+                <code>
+                    <pre>class start : Painting
+member variable declare : private trees string
+member variable declare : private name string
+class end</pre>
+                </code>
+            </td>
         </tr>
     </tbody>
 </table>
