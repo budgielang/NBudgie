@@ -70,7 +70,7 @@ export class ComparisonTestsRunner {
      * @param language   The language the test is running as.
      */
     public async runCommandTest(command: string): Promise<void> {
-        const source = this.readCommandFile(command, "source.txt");
+        const source = this.readCommandFile(command, "source.ngls");
         const expected = this.readCommandFile(command, "expected.gls");
         const actual = await this.parser.parseLines(source);
 
