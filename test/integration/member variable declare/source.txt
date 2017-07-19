@@ -15,3 +15,11 @@ public member of type def named abc
 private variable of type def named abc
 protected variable of type def named abc
 public variable of type def named abc
+
+private def named abc
+protected def named abc
+public def named abc
+
+private abc of type def
+protected abc of type def
+public abc of type def
