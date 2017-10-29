@@ -38,12 +38,12 @@
     "@types/sinon": "^2.3.2",
     "@types/sinon-chai": "^2.7.28",
     "chai": "^4.1.0",
-    "mocha": "^3.4.2",
-    "sinon": "^2.3.8",
+    "mocha": "^4.0.1",
+    "sinon": "^4.0.2",
     "sinon-chai": "^2.11.0"
   },
   "devDependencies": {
-    "@types/minimatch": "^2.0.29",
+    "@types/minimatch": "^3.0.1",
     "browserify": "^14.4.0",
     "del": "^3.0.0",
     "gulp": "^3.9.1",
