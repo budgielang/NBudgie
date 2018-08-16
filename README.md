@@ -1,5 +1,7 @@
 # NGLS - Natural General Language Syntax
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/general-language-syntax/NGLS.svg)](https://greenkeeper.io/)
+
 [![Build Status](https://travis-ci.org/HighSchoolHacking/NGLS.svg?)](https://travis-ci.org/HighSchoolHacking/NGLS)
 [![NPM version](https://badge.fury.io/js/ngls.svg)](http://badge.fury.io/js/ngls)
 
