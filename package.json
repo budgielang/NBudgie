@@ -34,7 +34,7 @@
   "homepage": "https://github.com/highschoolhacking/NGLS#readme",
   "dependencies": {
     "@types/chai": "^4.0.1",
-    "@types/mocha": "^2.2.41",
+    "@types/mocha": "^5.2.6",
     "@types/sinon": "^2.3.2",
     "@types/sinon-chai": "^2.7.28",
     "chai": "^4.1.0",
