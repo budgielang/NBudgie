@@ -39,7 +39,7 @@
     "@types/sinon-chai": "^2.7.28",
     "chai": "^4.1.0",
     "mocha": "^4.0.1",
-    "sinon": "^4.0.2",
+    "sinon": "^7.2.4",
     "sinon-chai": "^2.11.0"
   },
   "devDependencies": {
