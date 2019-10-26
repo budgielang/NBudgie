@@ -1,6 +1,6 @@
 # Development
 
-NGLS uses [Gulp](http://gulpjs.com/) to automate building, which requires [Node.js](http://node.js.org).
+NBudgie uses [Gulp](http://gulpjs.com/) to automate building, which requires [Node.js](http://node.js.org).
 
 To build from scratch, install Node.js and run the following commands:
 
@@ -18,7 +18,7 @@ Alternately, use `tsc` to build source files under `/src` to `/lib`, and `tsc -w
 
 ## Technical Structure
 
-Each line of NGLS should compile to a GLS command and arguments.
+Each line of NBudgie should compile to a Budgie command and arguments.
 Blank lines are preserved.
 Unknown lines are considered comments.
 

@@ -8,7 +8,7 @@ import { createParser } from "../lib/createParser";
 import { Parser } from "../lib/parser";
 
 /**
- * Test runner for comparing converted .gls files and expected output.
+ * Test runner for comparing converted .bg files and expected output.
  */
 export class ComparisonTestsRunner {
     /**
@@ -22,7 +22,7 @@ export class ComparisonTestsRunner {
     private readonly commandTests: Map<string, string[]>;
 
     /**
-     * Parses raw string lines into GLS.
+     * Parses raw string lines into Budgie.
      */
     private readonly parser: Parser;
 
@@ -65,13 +65,13 @@ export class ComparisonTestsRunner {
     /**
      * Runs a test for a single command in a language.
      *
-     * @param command   A GLS command to be tested, such as "ArrayInitialize".
+     * @param command   A Budgie command to be tested, such as "ArrayInitialize".
      * @param test   A test to be run for the command, such as "no values".
      * @param language   The language the test is running as.
      */
     public async runCommandTest(command: string): Promise<void> {
-        const source = this.readCommandFile(command, "source.ngls");
-        const expected = this.readCommandFile(command, "expected.gls");
+        const source = this.readCommandFile(command, "source.nbg");
+        const expected = this.readCommandFile(command, "expected.bg");
         const actual = await this.parser.parseLines(source);
 
         expect(actual).to.be.deep.equal(expected);
@@ -118,8 +118,8 @@ const readTestsUnderPath = (rootPath: string, commandsToRun: Set<string>): Map<s
         tests.set(
             childName,
             fs.readdirSync(path.resolve(rootPath, childName))
-                .filter((testFileName) => testFileName.indexOf(".gls") !== -1)
-                .map((testFileName) => testFileName.substring(0, testFileName.indexOf(".gls"))));
+                .filter((testFileName) => testFileName.indexOf(".bg") !== -1)
+                .map((testFileName) => testFileName.substring(0, testFileName.indexOf(".bg"))));
     }
 
     return tests;

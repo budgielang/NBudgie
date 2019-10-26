@@ -1,20 +1,17 @@
 {
-  "name": "ngls",
+  "name": "nbudgie",
   "version": "0.1.0",
-  "description": "Natural language layer on top of GLS.",
+  "description": "Natural language layer on top of Budgie.",
   "main": "lib/index.js",
   "scripts": {
     "test": "gulp test"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/highschoolhacking/NGLS.git"
+    "url": "git+https://github.com/budgielang/NBudgie.git"
   },
   "keywords": [
-    "gls",
-    "general",
-    "language",
-    "syntax",
+    "budgie",
     "oop",
     "metalanguage",
     "natural",
@@ -29,9 +26,9 @@
   "author": "Josh Goldberg <joshuakgoldberg@outlook.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/highschoolhacking/NGLS/issues"
+    "url": "https://github.com/budgielang/NBudgie/issues"
   },
-  "homepage": "https://github.com/highschoolhacking/NGLS#readme",
+  "homepage": "https://github.com/budgielang/NBudgie#readme",
   "dependencies": {
     "@types/chai": "^4.2.4",
     "@types/mocha": "^5.2.7",

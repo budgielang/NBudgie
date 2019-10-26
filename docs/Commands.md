@@ -1,6 +1,6 @@
 # Commands
 
-Each supported GLS command corresponds to a directory of that command's name under `src/commands` containing:
+Each supported Budgie command corresponds to a directory of that command's name under `src/commands` containing:
 * `matchers.ts` exporting a `MatchersList`
 * `command.ts` exporting a `Command`
 * `index.ts` exporting a method that creates an object with the corresponding `command` and `matchersList`
@@ -14,15 +14,15 @@ Matchers are typically implemented with a `RegExpMatchTest`, which takes in a ma
 
 ## `Command`
 
-A command takes in a settings object and converts it to lines of GLS and/or recursive NGLS command, as one `string[]` per line.
-Recursive NGLS commands must start with `"{ "` and end with `" }"`.
+A command takes in a settings object and converts it to lines of Budgie and/or recursive NBudgie command, as one `string[]` per line.
+Recursive NBudgie commands must start with `"{ "` and end with `" }"`.
 
 ## Conversions
 
-A NGLS-to-GLS conversion is performed on a series of lines in order.
+A NBudgie-to-Budgie conversion is performed on a series of lines in order.
 
-A "command context" stack is kept during each conversion as a record of which GLS commands the lines are in scope of.
-For example, if an NGLS command results in an `if start` command, `"if start"` is added to the context.
+A "command context" stack is kept during each conversion as a record of which Budgie commands the lines are in scope of.
+For example, if an NBudgie command results in an `if start` command, `"if start"` is added to the context.
 It will remain there until an `if end` command removes it from the stack.
 
 The conversion stack is necessary for parsing commands that may only exist as children in specific scopes.

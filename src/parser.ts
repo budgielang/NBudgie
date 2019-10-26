@@ -4,7 +4,7 @@ import { ContextTracker, IContextTracker } from "./contextTracker";
 import { IMatcher } from "./matchers";
 
 /**
- * Parses raw string lines into GLS.
+ * Parses raw string lines into Budgie.
  */
 export class Parser {
     /**
@@ -22,7 +22,7 @@ export class Parser {
     }
 
     /**
-     * Parses raw lines of text into GLS.
+     * Parses raw lines of text into Budgie.
      *
      * @param lines   Raw lines to convert.
      * @returns A Promise for converting the lines.
@@ -50,12 +50,12 @@ export class Parser {
     }
 
     /**
-     * Parses a raw string line into GLS.
+     * Parses a raw string line into Budgie.
      *
      * @param line   A raw string line to convert.
      * @param contextTracker   Tracks the command context stack.
      * @param deep   Whether this is within a recursive command.
-     * @returns The equivalent GLS, if possible.
+     * @returns The equivalent Budgie, if possible.
      */
     private parseLine(line: string, contextTracker: IContextTracker, deep?: true): string[] | undefined {
         for (const commandName of Object.keys(this.commandsAndMatchers)) {
@@ -88,9 +88,9 @@ export class Parser {
     /**
      * Recursively renders a command.
      *
-     * @param shallowRenderedLines   Lines of GLS or recursive commands.
+     * @param shallowRenderedLines   Lines of Budgie or recursive commands.
      * @param contextTracker   Tracks the command context stack.
-     * @returns Lines of GLS.
+     * @returns Lines of Budgie.
      */
     private recurseIntoCommand(shallowRenderedLines: string[][], contextTracker: IContextTracker): string[] {
         const realRenderedLines: string[] = [];

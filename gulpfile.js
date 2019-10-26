@@ -36,13 +36,13 @@ gulp.task("dist:dev", function () {
         debug: true,
         entries: "./src/index.ts",
         packageCache: {},
-        standalone: "general-language-syntax"
+        standalone: "budgie"
     });
 
     return browsering
         .plugin(tsify)
         .bundle()
-        .pipe(source("Ngls.js"))
+        .pipe(source("NBudgie.js"))
         .pipe(buffer())
         .pipe(gulp.dest("./dist"));
 });

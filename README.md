@@ -1,19 +1,18 @@
-# NGLS - Natural General Language Syntax
+# NBudgie - Natural Budgie 🦜
 
-[![Greenkeeper badge](https://badges.greenkeeper.io/general-language-syntax/NGLS.svg)](https://greenkeeper.io/)
+[![Greenkeeper badge](https://badges.greenkeeper.io/budgielang/NBudgie.svg)](https://greenkeeper.io/)
+[![Build Status](https://travis-ci.org/budgielang/NBudgie.svg?)](https://travis-ci.org/budgielang/NBudgie)
+[![NPM version](https://badge.fury.io/js/nbudgie.svg)](http://badge.fury.io/js/nbudgie)
 
-[![Build Status](https://travis-ci.org/HighSchoolHacking/NGLS.svg?)](https://travis-ci.org/HighSchoolHacking/NGLS)
-[![NPM version](https://badge.fury.io/js/ngls.svg)](http://badge.fury.io/js/ngls)
+A natural language layer on top of Budgie.
 
-A natural language layer on top of GLS.
-
-[General Language Syntax (GLS)](https://github.com/highschoolhacking/gls) is a unified syntax that compiles into a number of OOP languages.
-NGLS converts natural language to GLS syntax, which can then be converted into real code.
+[General Language Syntax (Budgie)](https://github.com/budgielang/budgie) is a unified syntax that compiles into a number of OOP languages.
+NBudgie converts natural language to Budgie syntax, which can then be converted into real code.
 
 <table>
     <thead>
-        <th>NGLS</th>
-        <th>GLS</th>
+        <th>NBudgie</th>
+        <th>Budgie</th>
     </thead>
     <tbody>
         <tr>
@@ -45,12 +44,12 @@ class end</pre></code>
 ## Usage
 
 ```javascript
-const ngls = require("ngls");
+const nbudgie = require("nbudgie");
 
-const nglsParser = ngls.createParser();
+const nbudgieParser = nbudgie.createParser();
 
 // "comment line : Hello!"
-nglsParser.parseLines([
+nbudgieParser.parseLines([
     `note: Hello!`
 ]);
 ```
