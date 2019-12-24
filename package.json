@@ -37,7 +37,7 @@
     "chai": "^4.2.0",
     "mocha": "^6.2.2",
     "sinon": "^7.5.0",
-    "sinon-chai": "^3.3.0"
+    "sinon-chai": "^3.4.0"
   },
   "devDependencies": {
     "@types/minimatch": "^3.0.3",
