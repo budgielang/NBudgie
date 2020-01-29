@@ -30,7 +30,7 @@
   },
   "homepage": "https://github.com/budgielang/NBudgie#readme",
   "dependencies": {
-    "@types/chai": "^4.2.4",
+    "@types/chai": "^4.2.8",
     "@types/mocha": "^5.2.7",
     "@types/sinon": "^7.5.0",
     "@types/sinon-chai": "^3.2.3",
