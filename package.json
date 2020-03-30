@@ -41,7 +41,7 @@
   },
   "devDependencies": {
     "@types/minimatch": "^3.0.3",
-    "browserify": "^16.5.0",
+    "browserify": "^16.5.1",
     "del": "^5.1.0",
     "gulp": "^4.0.2",
     "gulp-mocha": "^7.0.2",
